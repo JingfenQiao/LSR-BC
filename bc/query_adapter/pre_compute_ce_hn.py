@@ -111,8 +111,7 @@ def precompute(
     for qid, pos_docs in qrels.items():
         neg_docs = query2neg.get(qid, [])
         
-        if not neg_docs:
-            continue
+        if not neg_docs: continue
         
         # Remove positives from negatives (avoid overlap)
         pos_set = set(pos_docs)
@@ -175,7 +174,6 @@ def precompute(
                             'score': scores[b, g].cpu().item()
                         }
                         out_f.write(json.dumps(sample) + '\n')
-
 
 def main():
     parser = argparse.ArgumentParser(description="Precompute data for SPLADE distillation")

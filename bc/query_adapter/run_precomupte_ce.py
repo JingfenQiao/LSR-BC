@@ -8,7 +8,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 from transformers import AutoTokenizer, get_linear_schedule_with_warmup
 from modelling import SpladeSparseEncoder, freeze_module  # assuming this file defines the class correctly
-from dataloader import MultipleNegatives, read_collection, read_queries, read_triplets
+from dataloader import MultipleNegatives, MultipleNegativesCE, read_collection, read_queries, read_triplets, read_ce_score
 import wandb
 import random
 
@@ -21,16 +21,18 @@ class Batch:
     d_attention_mask: torch.Tensor
     d_special_tokens_mask: torch.Tensor
     group_size: int  # 1 + num_negs
+    docs_scores: torch.Tensor
 
 
 def collate_batch(
-    items: List[tuple[str, List[str]]],
+    items: List[tuple[str, List[str], List[float]]],
     tokenizer,
     max_q_len: int = 32,
     max_d_len: int = 256,
 ) -> Batch:
     queries = [item[0] for item in items]
     docs = [doc for item in items for doc in item[1]]
+    docs_scores = [score for item in items for score in item[2]]
     group_size = len(items[0][1])
 
     q = tokenizer(
@@ -48,6 +50,7 @@ def collate_batch(
         d_attention_mask=d["attention_mask"],
         d_special_tokens_mask=d["special_tokens_mask"],
         group_size=group_size,
+        docs_scores=torch.tensor(docs_scores, dtype=torch.float32)
     )
 
 
@@ -113,26 +116,18 @@ def train_query_only(
     # Models
     doc_old = SpladeSparseEncoder(doc_encoder_old_ckpt).to(device)
     q_new = SpladeSparseEncoder(query_encoder_init_ckpt).to(device)
-    teacher_model = SpladeSparseEncoder(query_encoder_init_ckpt).to(device)
 
     # Freeze document encoder
     freeze_module(doc_old)
     doc_old.eval()
-    freeze_module(teacher_model)
-    teacher_model.eval()
 
     # Load data
-    _, query2pos, query2neg = read_triplets(dataset_name=triplet_path, neg_source=neg_source)
-
-    # _, query2pos, query2neg = read_triplets(dataset_name="sentence-transformers/msmarco-hard-negatives",
-    #                                             ce_path="/ivi/ilps/personal/jkang1/jf/lsr-bc/cross-encoder-ms-marco-MiniLM-L-6-v2-scores.pkl.gz",
-    #                                             neg_source="bm25"
-    #                                        )
+    query2hardnegs, query2hardnegs_scores = read_ce_score(ce_path=triplet_path)
 
     docs = read_collection(collection_path)
     q_list = read_queries(queries_path)
 
-    q_dict = {qid: text for qid, text in q_list if qid in query2pos}
+    q_dict = {qid: text for qid, text in q_list if qid in query2hardnegs}
 
     # Split train/val
     query_ids = list(q_dict.keys())
@@ -145,16 +140,16 @@ def train_query_only(
         print("No training data available.")
         return
 
-    train_query2pos = {k: query2pos[k] for k in train_ids}
-    train_query2neg = {k: query2neg[k] for k in train_ids}
+    train_query2hardnegs = {k: query2hardnegs[k] for k in train_ids}
+    train_query2hardnegs_scores = {k: query2hardnegs_scores[k] for k in train_ids}
     train_q_dict = {k: q_dict[k] for k in train_ids}
 
     # Datasets & loaders
-    train_ds = MultipleNegatives(
+    train_ds = MultipleNegativesCE(
         docs=docs,
         q_dict=train_q_dict,
-        query2pos=train_query2pos,
-        query2neg=train_query2neg,
+        query2hardnegs=train_query2hardnegs,
+        query2hardnegs_scores=train_query2hardnegs_scores,
         train_group_size=1 + num_negs,
     )
 
@@ -169,15 +164,15 @@ def train_query_only(
 
     val_dl = None
     if val_ids:
-        val_query2pos = {k: query2pos[k] for k in val_ids}
-        val_query2neg = {k: query2neg[k] for k in val_ids}
+        val_query2hardnegs = {k: query2hardnegs[k] for k in val_ids}
+        val_query2hardnegs_scores = {k: query2hardnegs_scores[k] for k in val_ids}
         val_q_dict = {k: q_dict[k] for k in val_ids}
 
-        val_ds = MultipleNegatives(
+        val_ds = MultipleNegativesCE(
             docs=docs,
             q_dict=val_q_dict,
-            query2pos=val_query2pos,
-            query2neg=val_query2neg,
+            query2hardnegs=val_query2hardnegs,
+            query2hardnegs_scores=val_query2hardnegs_scores,
             train_group_size=1 + num_negs,
         )
 
@@ -190,7 +185,6 @@ def train_query_only(
             collate_fn=lambda items: collate_batch(items, tokenizer, max_q_len, max_d_len),
         )
 
-    # Optimizer & scheduler
     optim = torch.optim.AdamW(q_new.parameters(), lr=lr, weight_decay=weight_decay)
     total_steps = epochs * steps_per_epoch
     warmup_steps = int(total_steps * warmup_ratio)
@@ -217,8 +211,10 @@ def train_query_only(
                 with torch.cuda.amp.autocast(enabled=use_amp):
                     d_vec_flat = doc_old(input_ids=batch.d_input_ids, attention_mask=batch.d_attention_mask,
                                          special_tokens_mask=batch.d_special_tokens_mask)
+                    
                     q_vec = q_new(input_ids=batch.q_input_ids, attention_mask=batch.q_attention_mask,
                                   special_tokens_mask=batch.q_special_tokens_mask)
+
                     d_vec = d_vec_flat.view(batch.q_input_ids.size(0), batch.group_size, -1)
                     
                     scores = torch.einsum("bv,bgv->bg", q_vec, d_vec) / max(temperature, 1e-6)
@@ -257,13 +253,7 @@ def train_query_only(
                 with torch.cuda.amp.autocast(enabled=use_amp):
                     d_vec_flat = doc_old(input_ids=batch.d_input_ids, attention_mask=batch.d_attention_mask,
                                          special_tokens_mask=batch.d_special_tokens_mask)
-                    
-                    d_vec_flat_teacher = teacher_model(input_ids=batch.d_input_ids, attention_mask=batch.d_attention_mask,
-                                         special_tokens_mask=batch.d_special_tokens_mask)
-                    
-                    q_vec_new_teacher = teacher_model(input_ids=batch.q_input_ids, attention_mask=batch.q_attention_mask,
-                                    special_tokens_mask=batch.q_special_tokens_mask)
-                    
+                    teacher_scores = batch.docs_scores.view(batch.q_input_ids.size(0), batch.group_size) / max(temperature, 1e-6)
 
             with torch.cuda.amp.autocast(enabled=use_amp):
                 q_vec_new = q_new(input_ids=batch.q_input_ids, attention_mask=batch.q_attention_mask,
@@ -272,11 +262,7 @@ def train_query_only(
                 d_vec = d_vec_flat.view(batch.q_input_ids.size(0), batch.group_size, -1)
                 scores = torch.einsum("bv,bgv->bg", q_vec_new, d_vec) / max(temperature, 1e-6)
 
-                d_vec_teacher = d_vec_flat_teacher.view(batch.q_input_ids.size(0), batch.group_size, -1)
-                teacher_scores = torch.einsum("bv,bgv->bg", q_vec_new_teacher, d_vec_teacher) / max(temperature, 1e-6)
                 loss = F.kl_div(F.log_softmax(scores, dim=1), F.softmax(teacher_scores, dim=1), reduction='batchmean') * (temperature ** 2)
-
-                # loss = group_infonce(scores)
 
             optim.zero_grad(set_to_none=True)
             scaler.scale(loss).backward()
@@ -300,12 +286,13 @@ def train_query_only(
                 for batch in tqdm(val_dl, desc=f"Validation Epoch {ep+1}"):
                     batch = Batch(**{k: v.to(device) if torch.is_tensor(v) else v for k, v in batch.__dict__.items()})
 
-
                     with torch.cuda.amp.autocast(enabled=use_amp):
                         d_vec_flat = doc_old(input_ids=batch.d_input_ids, attention_mask=batch.d_attention_mask,
                                              special_tokens_mask=batch.d_special_tokens_mask)
                         q_vec = q_new(input_ids=batch.q_input_ids, attention_mask=batch.q_attention_mask,
                                       special_tokens_mask=batch.q_special_tokens_mask)
+
+
                         d_vec = d_vec_flat.view(batch.q_input_ids.size(0), batch.group_size, -1)
                         scores = torch.einsum("bv,bgv->bg", q_vec, d_vec) / max(temperature, 1e-6)
                         loss = group_infonce(scores)
@@ -324,12 +311,16 @@ def train_query_only(
             wandb.log({"val_loss": val_loss/steps, "val_mrr": val_mrr/steps, "val_recall@1": val_r1/steps, "epoch": ep+1, "step": global_step})
             q_new.train()
 
-        ckpt_dir = os.path.join(out_dir, f"epoch-{ep+1}")
-        os.makedirs(ckpt_dir, exist_ok=True)
-        q_new.save_pretrained(ckpt_dir)
-        tokenizer.save_pretrained(ckpt_dir)
-        print(f"Saved checkpoint: {ckpt_dir}")
+        # Save full model every 10 epochs + final
+        if (ep + 1) % 10 == 0 or (ep + 1) == epochs:
+            ckpt_dir = os.path.join(out_dir, f"epoch-{ep+1}")
+            os.makedirs(ckpt_dir, exist_ok=True)
+            q_new.save_pretrained(ckpt_dir)
+            tokenizer.save_pretrained(ckpt_dir)
+            print(f"Saved checkpoint: {ckpt_dir}")
+
     print(f"Training complete. Final model saved in: {out_dir}")
+
 
 def main():
     parser = argparse.ArgumentParser(description="Distill SPLADE query encoder to frozen document encoder")
@@ -337,8 +328,8 @@ def main():
                         help="Frozen document encoder (defines target sparse space)")
     parser.add_argument("--query_encoder_init_ckpt", default="naver/splade-v3", type=str,
                         help="Initial weights for query encoder (will be tuned)")
-    parser.add_argument("--out_dir", default="./new_model_as_teacher", type=str)
-    parser.add_argument("--triplet_path", default="sentence-transformers/msmarco-hard-negatives", type=str)
+    parser.add_argument("--out_dir", default="./splade_query_distilled", type=str)
+    parser.add_argument("--triplet_path", default="/ivi/ilps/personal/jkang1/jf/lsr-bc/data/cross-encoder-ms-marco-MiniLM-L-6-v2-scores.pkl.gz", type=str)
     parser.add_argument("--neg_source", default="bm25", type=str)
     parser.add_argument("--num_negs", default=20, type=int, help="More negatives = better, 7-15 common")
     parser.add_argument("--batch_size", default=8, type=int)
@@ -351,7 +342,6 @@ def main():
     args = parser.parse_args()
     wandb.init(project="splade-query-distillation", config=vars(args))
     train_query_only(**vars(args))
-
 
 if __name__ == "__main__":
     main()

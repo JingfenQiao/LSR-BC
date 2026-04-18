@@ -50,7 +50,6 @@ def collate_batch(
         group_size=group_size,
     )
 
-
 def group_infonce(scores_bg: torch.Tensor) -> torch.Tensor:
     """
     scores_bg: (B, G) where doc group per query is [pos, neg1..negN]
