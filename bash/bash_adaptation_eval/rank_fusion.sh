@@ -7,7 +7,6 @@
 #SBATCH --error=./log/rank_based_fusion_%a.output
 #SBATCH --array=1-4   # We have 4 files
 
-
 old_models=("sp_tiny" "sp_v3_doc" "sp_v3_lexical" "sp_v3_distil")
 new_models=("sp_v3"   "sp_v3"     "sp_v3"        "sp_v3")
 
