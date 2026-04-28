@@ -35,7 +35,6 @@ The following visualizations show the distribution of documents and queries acro
 |-----------|---------|
 | ![Stream 3 Docs Distribution](stream3_docs_dist.png) | ![Stream 3 Queries Distribution](stream3_queries_dist.png) |
 
-Note that the *science* topic dominates the dataset, while other topics have fewer documents and queries. Each session cumulatively adds more data from each topic.
 
 ### Pre-Encoded Metadata Files
 
@@ -126,37 +125,41 @@ This metadata file is used by `search_streaming_sparse.py` and `search_streaming
 
 ---
 
-## SLURM Script Reference
+## Bash Script Reference
 
----
+**Script**: `bc/streaming/search_streaming_new.py` — see [test.sh](../../bash/bash_stream_eval/test.sh)
 
-### 1. SLURM array script with status tracking
-**Purpose**: Runs a set of switching-experiment baselines as a SLURM array job with per-job status tracking (STARTED / SUCCESS / FAILED status files and per-task logs).  
-**Script called**: `bc/streaming/search_streaming_new.py` — see [test.sh](../../bash/bash_stream_eval/test.sh) for a minimal example call.  
+**Example call**:
 
+```bash
+BASELINES=(baseline6_1 baseline6_2 baseline6_3 baseline6_4 baseline23_1 baseline23_2 baseline23_3 baseline23_4)
+STREAM=1
 
-**Key configuration variables inside the script** (edit before submitting):
+python -u bc/streaming/search_streaming_new.py \
+  --baselines "$BASELINES" \
+  --stream "$STREAM" \
+  --skip_encoding \
+  --metadata_path "$REPO_DIR/metadata_streaming_splade-tiny_splade-v3.json" \
+  --batch_size 1000 \
+  --top_k 100 \
+  --output_dir "$OUTPUT_ROOT" \
+  --old_model old_v3distilbert \
+  --new_model new
+```
+
+**Key variables** (edit before submitting):
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `BASELINES` | Array of baselines to run (indexed by `SLURM_ARRAY_TASK_ID`) | `(baseline6_1 baseline6_2 … baseline23_4)` |
-| `STREAM` | Which stream to evaluate | `1` |
+| `BASELINES` | Baselines to run (indexed by `SLURM_ARRAY_TASK_ID`) | `(baseline6_1 … baseline23_4)` |
+| `STREAM` | Stream to evaluate | `1` |
 | `METADATA_PATH` | Path to metadata JSON | `metadata_streaming_splade-tiny_splade-v3.json` |
-| `OUTPUT_ROOT` | Where results are saved | `/path/to/streaming_results/...` |
-| `LOG_ROOT` | Where per-task logs are written | `/path/to/logs/...` |
-| `STATUS_DIR` | Where `.status` tracking files are written | `/path/to/status/...` |
+| `OUTPUT_ROOT` | Where results are saved | `/path/to/streaming_results/` |
+| `LOG_ROOT` | Where per-task logs are written | `/path/to/logs/` |
+| `STATUS_DIR` | Where `.status` files are written | `/path/to/status/` |
 
-Encodings must already exist (`--skip_encoding` is always passed). Status files in `STATUS_DIR` let you monitor or resume individual array tasks.
+Encodings must already exist (`--skip_encoding` is always passed). Status files in `STATUS_DIR` allow monitoring or resuming individual array tasks.
 
----
-
-### 2. Simplified sparse streaming runner
-
-See [test.sh](../../bash/bash_stream_eval/test.sh) for a minimal example.
-
-
-
----
 
 ## Output Structure
 
