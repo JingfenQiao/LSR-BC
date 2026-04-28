@@ -44,7 +44,13 @@ LSR-BC/
 │   │   ├── evaluate_beir_query_adapter.py  # QAdapter evaluation on BEIR
 │   │   ├── evaluate_beir_rep_fusion.py     # Representation fusion evaluation
 │   │   └── evaluate_beir_rank_fusion.py    # Rank fusion evaluation
-│   └── stream_evaluation/                  # Streaming / online evaluation notebooks
+│   ├── stream_evaluation/                  # Streaming / online evaluation notebooks
+│   └── streaming/                          # Streaming experiment pipeline
+│       ├── search_streaming_sparse.py      # Main streaming search & evaluation (sparse models)
+│       ├── encode_single_file_sparse.py    # Encode a single doc/query file with a sparse model
+│       ├── generate_metadata.py            # Generate metadata JSON from encoded files
+│       ├── baselines_sparse.yaml           # Baseline configs (query/doc strategies, fusion)
+│       └── docs/                           # Documentation and metadata examples
 ├── bash/
 │   ├── bash_adapter_train/                 # Scripts for QAdapter training
 │   ├── bash_adaptation_eval/               # Scripts for adaptation evaluation
