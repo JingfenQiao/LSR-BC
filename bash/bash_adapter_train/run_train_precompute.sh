@@ -1,5 +1,4 @@
 
-export WANDB_API_KEY="2c8e7ebe2df3dfb239748abdfdf7fef9b4b4440d"
 
 doc_model=naver/splade-v3-distilbert
 query_model=naver/splade-v3
