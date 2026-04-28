@@ -1,6 +1,6 @@
 ## Dataset
 
-The experiments use the **LOTTE streaming dataset** (lotte-streams-for-murr variant):
+The experiments use the **LOTTE streaming dataset** ([lotte-streams-for-murr](https://huggingface.co/datasets/hltcoe/lotte-streams-for-murr)):
 
 ```
 lotte-streams-for-murr/
