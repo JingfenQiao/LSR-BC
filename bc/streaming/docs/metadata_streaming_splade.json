@@ -1,0 +1,326 @@
+{
+  "queries": {
+    "1": {
+      "0": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D1_0_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_0_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_0_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_0_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_0_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D1_0_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_0_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_0_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_0_v3_lexical.jsonl"
+      },
+      "1": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D1_1_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_1_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_1_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_1_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_1_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D1_1_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_1_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_1_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_1_v3_lexical.jsonl"
+      },
+      "2": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D1_2_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_2_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_2_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_2_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_2_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D1_2_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_2_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_2_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_2_v3_lexical.jsonl"
+      },
+      "3": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D1_3_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_3_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_3_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_3_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_3_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D1_3_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_3_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_3_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_3_v3_lexical.jsonl"
+      },
+      "4": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D1_4_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_4_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_4_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_4_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D1_4_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D1_4_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_4_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_4_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D1_4_v3_lexical.jsonl"
+      }
+    },
+    "2": {
+      "0": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D2_0_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_0_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_0_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_0_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_0_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D2_0_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_0_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_0_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_0_v3_lexical.jsonl"
+      },
+      "1": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D2_1_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_1_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_1_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_1_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_1_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D2_1_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_1_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_1_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_1_v3_lexical.jsonl"
+      },
+      "2": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D2_2_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_2_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_2_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_2_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_2_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D2_2_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_2_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_2_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_2_v3_lexical.jsonl"
+      },
+      "3": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D2_3_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_3_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_3_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_3_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_3_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D2_3_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_3_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_3_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_3_v3_lexical.jsonl"
+      },
+      "4": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D2_4_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_4_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_4_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_4_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D2_4_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D2_4_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_4_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_4_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D2_4_v3_lexical.jsonl"
+      }
+    },
+    "3": {
+      "0": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D3_0_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_0_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_0_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_0_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_0_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D3_0_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_0_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_0_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_0_v3_lexical.jsonl"
+      },
+      "1": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D3_1_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_1_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_1_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_1_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_1_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D3_1_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_1_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_1_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_1_v3_lexical.jsonl"
+      },
+      "2": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D3_2_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_2_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_2_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_2_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_2_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D3_2_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_2_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_2_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_2_v3_lexical.jsonl"
+      },
+      "3": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D3_3_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_3_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_3_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_3_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_3_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D3_3_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_3_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_3_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_3_v3_lexical.jsonl"
+      },
+      "4": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D3_4_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_4_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_4_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_4_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/queries/queries_D3_4_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/queries_without_sampling/queries_D3_4_new.jsonl",
+        "old_refined_tiny": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_4_tiny.jsonl",
+        "new_refined_doc": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_4_v3_doc.jsonl",
+        "new_refined_lexical": ".../pre_encoded_murr/refined_sparse_models/queries/queries_D3_4_v3_lexical.jsonl"
+      }
+    }
+  },
+  "documents": {
+    "1": {
+      "0": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D1_0_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_0_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_0_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_0_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_0_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D1_0_new.jsonl"
+      },
+      "1": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D1_1_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_1_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_1_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_1_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_1_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D1_1_new.jsonl"
+      },
+      "2": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D1_2_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_2_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_2_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_2_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_2_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D1_2_new.jsonl"
+      },
+      "3": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D1_3_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_3_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_3_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_3_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_3_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D1_3_new.jsonl"
+      },
+      "4": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D1_4_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_4_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_4_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_4_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D1_4_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D1_4_new.jsonl"
+      }
+    },
+    "2": {
+      "0": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D2_0_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_0_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_0_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_0_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_0_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D2_0_new.jsonl"
+      },
+      "1": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D2_1_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_1_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_1_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_1_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_1_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D2_1_new.jsonl"
+      },
+      "2": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D2_2_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_2_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_2_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_2_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_2_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D2_2_new.jsonl"
+      },
+      "3": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D2_3_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_3_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_3_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_3_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_3_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D2_3_new.jsonl"
+      },
+      "4": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D2_4_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_4_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_4_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_4_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D2_4_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D2_4_new.jsonl"
+      }
+    },
+    "3": {
+      "0": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D3_0_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_0_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_0_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_0_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_0_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D3_0_new.jsonl"
+      },
+      "1": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D3_1_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_1_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_1_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_1_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_1_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D3_1_new.jsonl"
+      },
+      "2": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D3_2_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_2_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_2_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_2_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_2_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D3_2_new.jsonl"
+      },
+      "3": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D3_3_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_3_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_3_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_3_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_3_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D3_3_new.jsonl"
+      },
+      "4": {
+        "old": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D3_4_old.jsonl",
+        "old_cosd": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_4_old_cosd.jsonl",
+        "old_v3doc": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_4_old_v3doc.jsonl",
+        "old_v3lexical": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_4_old_v3lexical.jsonl",
+        "old_v3distilbert": ".../pre_encoded_murr/splade-v3-distilbert_splade-v3/docs/docs_D3_4_old_v3distilbert.jsonl",
+        "new": ".../pre_encoded_murr/splade-tiny_splade-v3/docs_without_sampling/docs_D3_4_new.jsonl"
+      }
+    }
+  },
+  "qrels": {
+    "1": {
+      "0": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D1_0.qrels",
+      "1": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D1_1.qrels",
+      "2": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D1_2.qrels",
+      "3": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D1_3.qrels",
+      "4": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D1_4.qrels"
+    },
+    "2": {
+      "0": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D2_0.qrels",
+      "1": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D2_1.qrels",
+      "2": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D2_2.qrels",
+      "3": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D2_3.qrels",
+      "4": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D2_4.qrels"
+    },
+    "3": {
+      "0": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D3_0.qrels",
+      "1": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D3_1.qrels",
+      "2": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D3_2.qrels",
+      "3": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D3_3.qrels",
+      "4": "/fnwi_fs/ivi/irlab/datasets/lotte/lotte-streams-for-murr/qrels/test_D3_4.qrels"
+    }
+  }
+}

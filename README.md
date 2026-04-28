@@ -172,3 +172,22 @@ python bc/static_evaluation/evaluate_beir_rank_fusion.py \
     --new_query_model_name sp_v3 \
     --new_doc_model_name sp_v3
 ```
+
+---
+
+## Streaming Evaluation
+
+Evaluates backward-compatibility in a simulated streaming setting (LOTTE streams, 3 streams × 5 sessions). See [bc/streaming/docs/README.md](bc/streaming/docs/README.md) for the full workflow and dataset description. 
+
+```bash
+python bc/streaming/search_streaming_new.py \
+    --baselines baseline6_1 baseline6_2 baseline23_1 baseline23_2 \
+    --stream 1 \
+    --skip_encoding \
+    --metadata_path metadata_streaming_splade.json \
+    --batch_size 1000 \
+    --top_k 100 \
+    --output_dir results/streaming \
+    --old_model old \
+    --new_model new
+```

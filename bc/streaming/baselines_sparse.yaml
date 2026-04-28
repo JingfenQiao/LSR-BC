@@ -1,0 +1,223 @@
+# Baseline configurations for sparse streaming evaluation (search_streaming_new.py)
+#
+# Runtime fields NOT included here (injected by ConfigManager at load time):
+#   old_model_name  <- args.old_model
+#   new_model_name  <- args.new_model
+#
+# Fields:
+#   name               : descriptive identifier used for output naming
+#   query_model        : 'old' | 'new' | 'switch' | 'old_refined_tiny'
+#   query_model_strategy : 'always_fuse' | 'fuse_before_switch' | 'fuse_after_switch' |
+#                          'always_rep_fuse' | 'rep_fuse_before_switch' | 'rep_fuse_after_switch'
+#                         (use query_model OR query_model_strategy, not both)
+#   doc_model_strategy : 'old' | 'new' | 'switch'
+#   switch_session     : 1 | 2 | 3 | 4  (only for switch-based strategies)
+#   use_rank_fusion    : true | false
+#   query_adapter      : 'old_refined_tiny' | 'new_refined_doc' | 'new_refined_lexical'
+#                         (optional, only for adapter-based baselines)
+#   adapter_before_switch : true | false
+#                         (optional, only when query_adapter is set)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Bounds
+# ─────────────────────────────────────────────────────────────────────────────
+
+baseline1:
+  name: baseline1_old_queries_old_docs
+  query_model: old
+  doc_model_strategy: old
+  use_rank_fusion: false
+
+baseline2:
+  name: baseline2_new_queries_new_docs
+  query_model: new
+  doc_model_strategy: new
+  use_rank_fusion: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Hard switch (no fusion)
+# ─────────────────────────────────────────────────────────────────────────────
+
+baseline3_1:
+  name: baseline3_switch_at_session1
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 1
+  use_rank_fusion: false
+
+baseline3_2:
+  name: baseline3_switch_at_session2
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 2
+  use_rank_fusion: false
+
+baseline3_3:
+  name: baseline3_switch_at_session3
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 3
+  use_rank_fusion: false
+
+baseline3_4:
+  name: baseline3_switch_at_session4
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 4
+  use_rank_fusion: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# New queries on old docs
+# ─────────────────────────────────────────────────────────────────────────────
+
+baseline4:
+  name: baseline4_new_queries_old_docs_with_fusion
+  query_model: new
+  doc_model_strategy: old
+  use_rank_fusion: true
+
+baseline8:
+  name: baseline8_new_queries_old_docs
+  query_model: new
+  doc_model_strategy: old
+  use_rank_fusion: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Hard switch + rank fusion
+# ─────────────────────────────────────────────────────────────────────────────
+
+baseline6_1:
+  name: baseline6_switch_at_session1_with_fusion
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 1
+  use_rank_fusion: true
+
+baseline6_2:
+  name: baseline6_switch_at_session2_with_fusion
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 2
+  use_rank_fusion: true
+
+baseline6_3:
+  name: baseline6_switch_at_session3_with_fusion
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 3
+  use_rank_fusion: true
+
+baseline6_4:
+  name: baseline6_switch_at_session4_with_fusion
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 4
+  use_rank_fusion: true
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Switch + adapter (old_refined_tiny, applied after switch)
+# ─────────────────────────────────────────────────────────────────────────────
+
+baseline11_1:
+  name: baseline11_switch_at_session1_adapter_old_refined_tiny
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 1
+  query_adapter: old_refined_tiny
+  use_rank_fusion: false
+
+baseline11_2:
+  name: baseline11_switch_at_session2_adapter_old_refined_tiny
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 2
+  query_adapter: old_refined_tiny
+  use_rank_fusion: false
+
+baseline11_3:
+  name: baseline11_switch_at_session3_adapter_old_refined_tiny
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 3
+  query_adapter: old_refined_tiny
+  use_rank_fusion: false
+
+baseline11_4:
+  name: baseline11_switch_at_session4_adapter_old_refined_tiny
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 4
+  query_adapter: old_refined_tiny
+  use_rank_fusion: false
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Switch + adapter (new_refined_doc, applied after switch)
+# ─────────────────────────────────────────────────────────────────────────────
+
+baseline12_1:
+  name: baseline12_switch_at_session1_adapter_new_refined_doc
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 1
+  query_adapter: new_refined_doc
+  use_rank_fusion: false
+  adapter_before_switch: false
+
+baseline12_2:
+  name: baseline12_switch_at_session2_adapter_new_refined_doc
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 2
+  query_adapter: new_refined_doc
+  use_rank_fusion: false
+  adapter_before_switch: false
+
+baseline12_3:
+  name: baseline12_switch_at_session3_adapter_new_refined_doc
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 3
+  query_adapter: new_refined_doc
+  use_rank_fusion: false
+  adapter_before_switch: false
+
+baseline12_4:
+  name: baseline12_switch_at_session4_adapter_new_refined_doc
+  query_model: switch
+  doc_model_strategy: switch
+  switch_session: 4
+  query_adapter: new_refined_doc
+  use_rank_fusion: false
+  adapter_before_switch: false
+
+#─────────────────────────────────────────────────────────────────────────────
+# Representation fusion: fuse only after switch
+# ─────────────────────────────────────────────────────────────────────────────
+
+baseline23_1:
+  name: baseline23_switch_at_session1_rep_fuse_after_switch
+  query_model_strategy: rep_fuse_after_switch
+  doc_model_strategy: switch
+  switch_session: 1
+  use_rank_fusion: false
+
+baseline23_2:
+  name: baseline23_switch_at_session2_rep_fuse_after_switch
+  query_model_strategy: rep_fuse_after_switch
+  doc_model_strategy: switch
+  switch_session: 2
+  use_rank_fusion: false
+
+baseline23_3:
+  name: baseline23_switch_at_session3_rep_fuse_after_switch
+  query_model_strategy: rep_fuse_after_switch
+  doc_model_strategy: switch
+  switch_session: 3
+  use_rank_fusion: false
+
+baseline23_4:
+  name: baseline23_switch_at_session4_rep_fuse_after_switch
+  query_model_strategy: rep_fuse_after_switch
+  doc_model_strategy: switch
+  switch_session: 4
+  use_rank_fusion: false
