@@ -1,0 +1,12 @@
+torch
+transformers
+datasets
+sentence-transformers
+mteb
+ir-datasets
+ir-measures
+scikit-learn
+numpy
+matplotlib
+tqdm
+wandb

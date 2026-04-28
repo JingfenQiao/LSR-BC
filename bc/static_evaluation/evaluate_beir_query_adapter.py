@@ -8,7 +8,6 @@ from sentence_transformers import SparseEncoder
 import mteb
 from mteb.model_meta import ModelMeta
 from typing import Union  # Add this import
-
 # Allowed Retrieval task names (as in MTEB)
 ALLOWED_TASKS = [
     "TRECCOVID",
@@ -29,7 +28,7 @@ ALLOWED_TASKS = [
 ]
 
 class SparseEvaluator:
-    def __init__(self, query_encoder="naver/splade-v3", doc_encoder="naver/splade-v3"):
+    def __init__(self, query_encoder=None, doc_encoder=None):
         self.query_encoder = SparseEncoder(query_encoder)
         self.doc_encoder = SparseEncoder(doc_encoder)
 
@@ -89,12 +88,10 @@ class SparseEvaluator:
         **kwargs,
     ):
         if prompt_type == "query":
-            reps = self.query_encoder.encode_query(sentences)
+            reps = self.query_encoder.encode(sentences)
         else:
             reps = self.doc_encoder.encode_document(sentences)
         return reps
-
-
 
 def main():
     parser = argparse.ArgumentParser(description="Run MTEB benchmark with SparseEncoder")

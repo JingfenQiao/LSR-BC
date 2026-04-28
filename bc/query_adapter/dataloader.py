@@ -92,7 +92,6 @@ def read_queries(queries_path: str, text_fields=["text"]):
 
 
 def read_ce_score(ce_path: str):
-    # score_filename = "/ivi/ilps/personal/jkang1/jf/lsr-bc/data/cross-encoder-ms-marco-MiniLM-L-6-v2-scores.pkl.gz"
     with gzip.open(ce_path, "rb") as f:
         data = pickle.load(f)
 

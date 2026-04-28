@@ -3,8 +3,8 @@
 #SBATCH --job-name=q_sp_v3_d_sp_v3_lexical
 #SBATCH --mem=30G
 #SBATCH --time=60:00:00
-#SBATCH --output=/ivi/ilps/personal/jqiao/lsr-bc/log/q_sp_v3_d_sp_v3_lexical.output
-#SBATCH --error=/ivi/ilps/personal/jqiao/lsr-bc/log/q_sp_v3_d_sp_v3_lexical.output
+#SBATCH --output=./log/q_sp_v3_d_sp_v3_lexical.output
+#SBATCH --error=./log/q_sp_v3_d_sp_v3_lexical.output
 #SBATCH --array=1   # We have 5 files
 #SBATCH --gres=gpu:nvidia_rtx_a6000   # Request one GPU per task
 
